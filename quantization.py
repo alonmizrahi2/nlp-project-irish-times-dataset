@@ -45,7 +45,7 @@ class IrishTimesDataset(Dataset):
 
 
 # Load the dataset
-df = pd.read_csv('/fortest/ireland-news-headlines-cleaned-6.csv')
+df = pd.read_csv('data/ireland-news-headlines-cleaned-6.csv')
 df.rename(columns={'clean_headline_text': 'text', 'headline_category': 'category'}, inplace=True)
 
 df = df[['text', 'category']]  # Keep only 'text' and 'category' columns
@@ -63,7 +63,7 @@ df.drop_duplicates(inplace=True)
 shuffled_data = df.sample(frac=1).reset_index(drop=True)
 
 # Define the train-test split ratio
-train_ratio = 0.9  # 80% for training, 20% for testing
+train_ratio = 0.9  # 90% for training, 10% for testing
 
 # Calculate the split index
 split_index = int(train_ratio * len(shuffled_data))
@@ -82,10 +82,10 @@ unique_classes = df['category'].unique()
 print(unique_classes)
 
 # Load model dicts
-path = '/bert_6_bset_model/BERT_6.pt'
+path = 'models/bset_model/BERT_6.pt'
 model.load_state_dict(torch.load(path))
 model.eval()
-classifer_path = '/bert_6_bset_model/Classifier_6.pt'
+classifer_path = 'models/bset_model/Classifier_6.pt'
 classifer.load_state_dict(torch.load(classifer_path))
 classifer.eval()
 
