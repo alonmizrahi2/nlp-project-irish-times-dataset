@@ -1,4 +1,4 @@
-# nlp-project-irish-times-dataset
+# NLP PROJECT - "Irish Times" dataset
 
 The project focuses on analyzing and processing the "Irish Times" dataset, which consists of 1.6 million headlines from articles on The Irish Times news website. The goal is to classify the type of headline by reading it.
 
